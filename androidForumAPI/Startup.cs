@@ -2,10 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using androidForumAPI.Data;
+using androidForumAPI.Data.Repositories;
+using androidForumAPI.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,8 +31,11 @@ namespace androidForumAPI
         {
 
             services.AddControllers();
-            services.AddOpenApiDocument(); 
+            services.AddOpenApiDocument();
+            services.AddDbContext<PostContext>(options =>
+              options.UseSqlServer(Configuration.GetConnectionString("PostContext")));
 
+            services.AddScoped<IPostRepository, PostRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
