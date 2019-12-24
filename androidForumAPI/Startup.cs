@@ -25,7 +25,10 @@ namespace androidForumAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddControllers();
+            services.AddOpenApiDocument(); 
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +44,9 @@ namespace androidForumAPI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSwaggerUi3(); 
+            app.UseSwagger();
 
             app.UseEndpoints(endpoints =>
             {
