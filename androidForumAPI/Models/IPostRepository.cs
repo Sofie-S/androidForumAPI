@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace androidForumAPI.Models
 {
-    interface IPostRepository
+    public interface IPostRepository
     {
-        IEnumerable<Post> getAll();
+        IEnumerable<Post> GetAll();
         Post GetBy(int postId);
         void SaveChanges();
     }

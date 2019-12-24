@@ -29,6 +29,16 @@ namespace androidForumAPI.Data
                 Post p7 = new Post { PostTitle = "kandidaat stellen", PostDescription = "Wie zich kandidaat wenst te stellen moet een mail sturen naar admin@hogent.be", DateAdded = new DateTime(2019, 5, 1), CreatorName = "Dirk Dirkson" };
                 Post p8 = new Post { PostTitle = "iemand een fietspomp die ik kan lenen", PostDescription = "help", DateAdded = new DateTime(2019, 7, 18), CreatorName = "Jan Janneman" };
 
+
+                _dbContext.Add(p1);
+                _dbContext.Add(p2);
+                _dbContext.Add(p3);
+                _dbContext.Add(p4);
+                _dbContext.Add(p5);
+                _dbContext.Add(p6);
+                _dbContext.Add(p7);
+                _dbContext.Add(p8);
+
                 _dbContext.SaveChanges();
             }
         }

@@ -18,7 +18,7 @@ namespace androidForumAPI.Data.Repositories
             _posts = dbContext.Posts;
         }
 
-        public IEnumerable<Post> getAll()
+        public IEnumerable<Post> GetAll()
         {
             return _posts.OrderByDescending(p => p.DateAdded);
         }
