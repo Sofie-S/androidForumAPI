@@ -9,6 +9,10 @@ namespace androidForumAPI.Data
 {
     public class PostContext: DbContext
     {
+        public PostContext(DbContextOptions<PostContext> options) : base(options)
+        {
+        }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

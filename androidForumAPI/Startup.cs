@@ -32,14 +32,16 @@ namespace androidForumAPI
 
             services.AddControllers();
             services.AddOpenApiDocument();
+           
             services.AddDbContext<PostContext>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("PostContext")));
 
+            services.AddScoped<DataInitializer>();
             services.AddScoped<IPostRepository, PostRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DataInitializer dataInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -59,6 +61,7 @@ namespace androidForumAPI
             {
                 endpoints.MapControllers();
             });
+            dataInitializer.InitializeData().Wait();
         }
     }
 }
