@@ -24,7 +24,7 @@ Open the project in Visual Studio and build or navigate to the project folder an
 dotnet run
 ```
 
-The project will run on port 44331 in visual studio and port 5000 when started from the terminal. 
+The project will run on port 5000 when started from the terminal. 
 You will automatically be redirected to the API hub, otherwise route to **/swagger**.
 
 
