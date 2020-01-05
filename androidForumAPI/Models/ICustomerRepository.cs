@@ -4,12 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace androidForumAPI.Models
-{
-    public interface IPostRepository
+{ 
+    public interface ICustomerRepository
     {
-        IEnumerable<Post> GetAll();
-        Post GetBy(int postId);
-        void Add(Post post);
+        Customer GetBy(string email);
+        void Add(Customer customer);
         void SaveChanges();
     }
 }

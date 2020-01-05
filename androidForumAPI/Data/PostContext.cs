@@ -1,4 +1,5 @@
 ﻿using androidForumAPI.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace androidForumAPI.Data
 {
-    public class PostContext: DbContext
+    public class PostContext: IdentityDbContext
     {
         public PostContext(DbContextOptions<PostContext> options) : base(options)
         {
@@ -19,5 +20,6 @@ namespace androidForumAPI.Data
         }
 
         public DbSet<Post> Posts { get; set; }
+        public DbSet<Customer> Customers { get; set; }
     }
 }

@@ -25,7 +25,12 @@ namespace androidForumAPI.Data.Repositories
 
         public Post GetBy(int postId)
         {
-            return _posts.SingleOrDefault(p => p.PostId == postId);
+            return _posts.Include(p => p.Reactions).SingleOrDefault(p => p.PostId == postId);
+        }
+
+        public void Add(Post post)
+        {
+            _posts.Add(post);
         }
 
         public void SaveChanges()
